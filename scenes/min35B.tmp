@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgd8e4dokh4mh"]
+
+[ext_resource type="Script" path="res://scripts/minigame.gd" id="1_pm5k3"]
+
+[node name="minigame" type="CanvasLayer"]
+script = ExtResource("1_pm5k3")

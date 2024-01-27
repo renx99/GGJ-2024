@@ -7,14 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func _on_door_body_entered(body):
-	if body.has_method("is_touching_door"):
-		body.is_touching_door(true)
-
-func _on_door_body_exited(body):
-	if body.has_method("is_touching_door"):
-		body.is_touching_door(false)
+func _on_killzone_body_entered(body):
+	if body.has_method("reset_level"):
+		body.reset_level()

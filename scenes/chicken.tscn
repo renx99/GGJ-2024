@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vucv877ssfe8"]
+
+[ext_resource type="Script" path="res://scripts/chicken.gd" id="1_2jrac"]
+[ext_resource type="Texture2D" uid="uid://85yj7hcqmr2y" path="res://graphics/shapes-Sheet.png" id="2_06h17"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ph0b1"]
+radius = 14.0
+
+[node name="chicken" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_2jrac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ph0b1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_06h17")
+hframes = 5
