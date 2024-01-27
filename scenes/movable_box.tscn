@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3enbjiti05nw"]
+
+[ext_resource type="Texture2D" uid="uid://85yj7hcqmr2y" path="res://graphics/shapes-Sheet.png" id="1_yxjso"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0k5tn"]
+friction = 0.3
+
+[node name="movable_box" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_0k5tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_yxjso")
+hframes = 5
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(-14, -12.5, -12.5, -14, 12, -14, 14, -12, 14, 12.25, 12.5, 14, -12, 14, -14, 12.25)

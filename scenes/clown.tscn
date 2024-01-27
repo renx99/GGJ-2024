@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwy7ux5gfyht4"]
+
+[ext_resource type="Script" path="res://scripts/clown.gd" id="1_3ty01"]
+[ext_resource type="Texture2D" uid="uid://4nxr6q8iu658" path="res://graphics/stick-person.png" id="1_ktr6p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctrjx"]
+height = 62.0
+
+[node name="clown" type="CharacterBody2D"]
+script = ExtResource("1_3ty01")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.960784, 0.439216, 0.0666667, 1)
+texture = ExtResource("1_ktr6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ctrjx")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-168, 0)

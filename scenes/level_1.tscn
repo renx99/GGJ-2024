@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cthkg7f83cum1"]
+
+[ext_resource type="TileSet" uid="uid://d1wxl11bni0cb" path="res://scenes/level0.tres" id="1_em4kf"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="2_0qgti"]
+[ext_resource type="PackedScene" uid="uid://cwy7ux5gfyht4" path="res://scenes/clown.tscn" id="3_72wwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkf1s"]
+size = Vector2(64.5, 62)
+
+[node name="Level1" type="TileMap"]
+tile_set = ExtResource("1_em4kf")
+format = 2
+layer_0/name = "Walls and Floors"
+layer_0/tile_data = PackedInt32Array(589825, 131072, 0, 589826, 131072, 0, 589827, 131072, 0, 589828, 131072, 0, 589829, 131072, 0, 589830, 131072, 0, 589831, 131072, 0, 589832, 131072, 0, 589833, 131072, 0, 589834, 131072, 0, 589835, 131072, 0, 589836, 131072, 0, 589837, 131072, 0, 589838, 131072, 0, 589839, 131072, 0, 589840, 131072, 0, 589841, 131072, 0, 589842, 131072, 0, 589843, 131072, 0, 589844, 131072, 0, 589845, 131072, 0, 589846, 131072, 0, 589847, 131072, 0, 589848, 131072, 0, 589849, 131072, 0, 589850, 131072, 0, 589851, 131072, 0, 589824, 131072, 0, 524288, 131072, 0, 458752, 131072, 0, 393216, 131072, 0, 327680, 131072, 0, 589852, 131072, 0, 589853, 131072, 0, 589854, 131072, 0, 589855, 131072, 0, 589856, 131072, 0, 589857, 131072, 0, 589858, 131072, 0, 589859, 131072, 0, 589860, 131072, 0, 589861, 131072, 0, 589862, 131072, 0, 589863, 131072, 0, 589864, 131072, 0, 589865, 131072, 0, 589866, 131072, 0, 589867, 131072, 0, 589868, 131072, 0, 589869, 131072, 0, 589870, 131072, 0, 589871, 131072, 0, 589872, 131072, 0, 589873, 131072, 0, 589874, 131072, 0, 589875, 131072, 0, 589876, 131072, 0, 589877, 131072, 0, 589878, 131072, 0, 589879, 131072, 0, 589880, 131072, 0, 589881, 131072, 0, 589882, 131072, 0, 524300, 0, 1, 458764, 0, 1, 393246, 65536, 0, 393247, 131072, 0, 393248, 131072, 0, 393249, 131072, 0, 393250, 131072, 0, 393251, 131072, 0, 393252, 131072, 0, 393253, 131072, 0, 393254, 131072, 0, 393255, 196608, 0)
+layer_1/name = "Background"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Objects"
+layer_2/tile_data = PackedInt32Array(524310, 720896, 1, 524311, 1376256, 0, 458775, 1179648, 2, 393239, 1179648, 1, 524312, 720896, 1, 524323, 720896, 1, 524325, 720896, 1, 524324, 1179648, 2, 458788, 1179648, 1, 524294, 1114112, 5)
+script = ExtResource("2_0qgti")
+
+[node name="door" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+position = Vector2(416, 544)
+shape = SubResource("RectangleShape2D_lkf1s")
+
+[node name="clown" parent="." instance=ExtResource("3_72wwt")]
+position = Vector2(693, 535)
+
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]
