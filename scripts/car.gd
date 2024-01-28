@@ -30,7 +30,7 @@ func _physics_process(delta):
 		#print("i'm touching::=", collision.get_collider().name)
 		var collided_with = collision.get_collider().name
 		if collided_with.begins_with("chicken"):
-			collision.get_collider().emit_signal("reset_position")
+			emit_signal("hit")
 
 func set_direction(dir):
 	if dir == 'left':
