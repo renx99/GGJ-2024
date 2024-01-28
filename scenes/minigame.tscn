@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgd8e4dokh4mh"]
+[gd_scene load_steps=7 format=3 uid="uid://dgd8e4dokh4mh"]
 
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="1_pm5k3"]
 [ext_resource type="Texture2D" uid="uid://7q5egfl2qoht" path="res://graphics/minigame-background1.png" id="2_cptbc"]
 [ext_resource type="PackedScene" uid="uid://vucv877ssfe8" path="res://scenes/chicken.tscn" id="2_gu6gy"]
 [ext_resource type="PackedScene" uid="uid://i5yph70wdd0c" path="res://scenes/car_manager.tscn" id="3_6km8j"]
+[ext_resource type="Texture2D" uid="uid://dni25fy8sb4rw" path="res://graphics/whoopee-small.png" id="5_yrhlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11370"]
 size = Vector2(626, 90)
@@ -20,17 +21,17 @@ metadata/_edit_lock_ = true
 position = Vector2(300, 512)
 
 [node name="car_manager" parent="." instance=ExtResource("3_6km8j")]
-position = Vector2(600, 200)
+position = Vector2(616, 201)
 
 [node name="car_manager4" parent="." instance=ExtResource("3_6km8j")]
-position = Vector2(601, 343)
+position = Vector2(611, 419)
 
 [node name="car_manager2" parent="." instance=ExtResource("3_6km8j")]
-position = Vector2(-4, 132)
+position = Vector2(-16, 144)
 direction = "right"
 
 [node name="car_manager3" parent="." instance=ExtResource("3_6km8j")]
-position = Vector2(-5, 265)
+position = Vector2(-14, 308)
 direction = "right"
 
 [node name="Goal" type="Area2D" parent="."]
@@ -38,5 +39,27 @@ direction = "right"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(303, 35)
 shape = SubResource("RectangleShape2D_11370")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 553.0
+offset_right = 459.0
+offset_bottom = 576.0
+text = "Why Did The Chicken Cross The Road??"
+
+[node name="whoopie_graphic" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 4.0
+offset_right = 357.0
+offset_bottom = 68.0
+texture = ExtResource("5_yrhlo")
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

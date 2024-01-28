@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 1200.0
 const JUMP_VELOCITY = -900.0
 const WHOOPIE = 2.2
-var has_whoopie = true
+var has_whoopie = false
 var touching_door = false
 var current_door
 
@@ -23,16 +23,24 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$"../../jump".play()
 		
 		if Input.is_action_pressed("WHOOPIE") and is_on_floor() and has_whoopie:
 			velocity.y = velocity.y * WHOOPIE
+			$"../../fart".play()
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
+		if direction < 0:
+			$AnimatedSprite2D.play("walk-left")
+		else:
+			$AnimatedSprite2D.play("walk-right")
+
 		velocity.x = direction * SPEED
 		if Input.is_action_pressed("WHOOPIE") and is_on_floor() and has_whoopie:
 			velocity.x = velocity.x * WHOOPIE
 	else:
+		$AnimatedSprite2D.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
@@ -52,6 +60,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Open Door") and touching_door:
 		#has_whoopie = true
 		emit_signal("play_minigame", current_door)
+		$"../../door".play()
 	
 func is_touching_door(status:bool, door):
 	touching_door = status 

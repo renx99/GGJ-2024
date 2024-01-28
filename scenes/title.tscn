@@ -10,7 +10,7 @@ default_font_size = 42
 script = ExtResource("1_0u3dn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1981, 1083)
+position = Vector2(1920, 1080)
 scale = Vector2(2, 2)
 texture = ExtResource("1_kgqk5")
 
@@ -22,10 +22,10 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 1879.0
-offset_top = 1707.0
-offset_right = 2133.0
-offset_bottom = 1795.0
+offset_left = 1815.0
+offset_top = 1710.0
+offset_right = 2069.0
+offset_bottom = 1798.0
 theme = SubResource("Theme_bas33")
 text = "START"
 

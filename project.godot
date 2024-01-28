@@ -13,7 +13,7 @@ config_version=5
 config/name="GGJ-2024"
 run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://graphics/splash.png"
+boot_splash/image="res://graphics/title_screen.png"
 config/icon="res://icon.svg"
 
 [display]
@@ -21,11 +21,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/scale=0.5
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [input]
 

@@ -7,7 +7,9 @@ func _ready():
 	#get_tree().paused = true
 	PhysicsServer2D.set_active(true)
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	pass
+	
+	if $"../../main_game/Player".has_whoopie:
+		$"Control/whoopie_graphic".visible = false
 
 
 
@@ -18,6 +20,10 @@ func _on_area_2d_body_entered(body):
 
 func _on_goal_body_entered(_body):
 	$"../../main_game/Player".has_whoopie = true
+	$"../../main_game/Player/whoopie_image".visible = true
+	$"../../powerup".play()
+	
+		
 	
 	if $"../../main_game/Player".current_door:
 		$"../../main_game/Player".current_door.teleport($"../../main_game/Player")
