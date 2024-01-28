@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -900.0
 const WHOOPIE = 2.2
 var has_whoopie = true
 var touching_door = false
+var current_door
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -50,10 +51,11 @@ func _physics_process(delta):
 	# open door logic
 	if Input.is_action_just_pressed("Open Door") and touching_door:
 		#has_whoopie = true
-		emit_signal("play_minigame")
+		emit_signal("play_minigame", current_door)
 	
-func is_touching_door(status:bool):
+func is_touching_door(status:bool, door):
 	touching_door = status 
+	current_door = door
 	
 func reset_level():
 	get_tree().reload_current_scene()

@@ -10,19 +10,18 @@ func _ready():
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("reset_player"):
 		body.reset_player()
 
 
-func _on_goal_body_entered(body):
+func _on_goal_body_entered(_body):
 	$"../../main_game/Player".has_whoopie = true
+	
+	if $"../../main_game/Player".current_door:
+		$"../../main_game/Player".current_door.teleport($"../../main_game/Player")
+	
 	get_tree().paused = false
 	$"../../minigame_viewport".visible = false
 	call_deferred("queue_free")

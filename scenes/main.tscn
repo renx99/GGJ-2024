@@ -16,15 +16,15 @@ viewport_path = NodePath("minigame_manager")
 [node name="Level1" parent="main_game" instance=ExtResource("2_olrmi")]
 
 [node name="Trees" type="Sprite2D" parent="main_game"]
-position = Vector2(1078, 608)
+position = Vector2(842, 632)
 texture = ExtResource("3_xhmrt")
 
 [node name="Hut" type="Sprite2D" parent="main_game"]
-position = Vector2(1768, 557)
+position = Vector2(1636, 553)
 texture = ExtResource("4_kodfy")
 
 [node name="Player" parent="main_game" instance=ExtResource("2_6pxwq")]
-position = Vector2(31855, -109)
+position = Vector2(2653, 705)
 
 [node name="minigame_viewport" type="CanvasLayer" parent="."]
 visible = false

@@ -6,12 +6,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
-func _on_player_play_minigame():
+func _on_player_play_minigame(_door):
 	var minigame = minigame_scene.instantiate()
 	add_child(minigame)
 	$"../minigame_viewport".visible = true

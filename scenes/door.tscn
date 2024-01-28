@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8t874gbb1l2t"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_5iws8"]
-[ext_resource type="Texture2D" uid="uid://bhus8u8flevd4" path="res://graphics/lockGreenLock.png" id="1_gm01p"]
+[ext_resource type="Texture2D" uid="uid://bdavmamaprls8" path="res://graphics/wooden_door.png" id="2_a8j3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkf1s"]
 size = Vector2(64.5, 62)
@@ -13,7 +13,7 @@ script = ExtResource("1_5iws8")
 shape = SubResource("RectangleShape2D_lkf1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_gm01p")
+texture = ExtResource("2_a8j3c")
 
 [connection signal="body_entered" from="." to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_door_body_exited"]
