@@ -21,3 +21,4 @@ func _physics_process(delta):
 
 func reset_position():
 	position = Vector2(300, 512)
+	print('im hits')

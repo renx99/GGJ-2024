@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 1200.0
+const JUMP_VELOCITY = -900.0
 const WHOOPIE = 2.2
 var has_whoopie = false 
 var touching_door = false
@@ -10,6 +10,7 @@ var touching_door = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal play_minigame
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -47,8 +48,9 @@ func _physics_process(delta):
 		if collided_with == "clown":
 			print("caught by clown")
 	# open door logic
-	if Input.is_action_pressed("Open Door") and touching_door:
-		has_whoopie = true
+	if Input.is_action_just_pressed("Open Door") and touching_door:
+		#has_whoopie = true
+		emit_signal("play_minigame")
 	
 func is_touching_door(status:bool):
 	touching_door = status 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cthkg7f83cum1"]
+[gd_scene load_steps=7 format=3 uid="uid://cthkg7f83cum1"]
 
 [ext_resource type="TileSet" uid="uid://d1wxl11bni0cb" path="res://scenes/level0.tres" id="1_em4kf"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="2_0qgti"]
 [ext_resource type="PackedScene" uid="uid://cwy7ux5gfyht4" path="res://scenes/clown.tscn" id="3_72wwt"]
 [ext_resource type="PackedScene" uid="uid://b3enbjiti05nw" path="res://scenes/movable_box.tscn" id="3_wh5mg"]
 [ext_resource type="PackedScene" uid="uid://8t874gbb1l2t" path="res://scenes/door.tscn" id="5_p4r1j"]
-[ext_resource type="Texture2D" uid="uid://kl7662w8ru8t" path="res://graphics/hut.png" id="6_p738e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqr2h"]
 size = Vector2(14179.5, 461)
@@ -75,10 +74,5 @@ shape = SubResource("RectangleShape2D_jqr2h")
 
 [node name="door" parent="." instance=ExtResource("5_p4r1j")]
 position = Vector2(376, 536)
-
-[node name="Hut" type="Sprite2D" parent="."]
-position = Vector2(369, 420)
-scale = Vector2(0.300781, 0.300781)
-texture = ExtResource("6_p738e")
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
