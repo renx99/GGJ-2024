@@ -24,7 +24,7 @@ position = Vector2(1768, 557)
 texture = ExtResource("4_kodfy")
 
 [node name="Player" parent="main_game" instance=ExtResource("2_6pxwq")]
-position = Vector2(2668, 826)
+position = Vector2(31855, -109)
 
 [node name="minigame_viewport" type="CanvasLayer" parent="."]
 visible = false

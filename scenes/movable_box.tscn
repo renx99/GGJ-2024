@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3enbjiti05nw"]
 
-[ext_resource type="Texture2D" uid="uid://85yj7hcqmr2y" path="res://graphics/shapes-Sheet.png" id="1_yxjso"]
+[ext_resource type="Texture2D" uid="uid://d7r8t1bq1wjb" path="res://graphics/box.png" id="1_jsb6f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0k5tn"]
-friction = 0.13
+friction = 0.25
+rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_je82m"]
-radius = 55.0
+radius = 250.008
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy2w0"]
-size = Vector2(112, 101)
+size = Vector2(503, 456)
 
 [node name="movable_box" type="RigidBody2D"]
 collision_layer = 2
@@ -18,14 +19,11 @@ physics_material_override = SubResource("PhysicsMaterial_0k5tn")
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
-texture = ExtResource("1_yxjso")
-hframes = 5
-frame = 1
+texture = ExtResource("1_jsb6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_je82m")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
+position = Vector2(0.5, -24)
 shape = SubResource("RectangleShape2D_hy2w0")

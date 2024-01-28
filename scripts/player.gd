@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 1200.0
 const JUMP_VELOCITY = -900.0
 const WHOOPIE = 2.2
-var has_whoopie = false 
+var has_whoopie = true
 var touching_door = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
