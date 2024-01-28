@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5fu5bprvrfml"]
+
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_0u3dn"]
+[ext_resource type="Texture2D" uid="uid://d1x2ktt7wf0d5" path="res://graphics/title_screen.png" id="1_kgqk5"]
+
+[sub_resource type="Theme" id="Theme_bas33"]
+default_font_size = 42
+
+[node name="title" type="Node2D"]
+script = ExtResource("1_0u3dn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1981, 1083)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kgqk5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1879.0
+offset_top = 1707.0
+offset_right = 2133.0
+offset_bottom = 1795.0
+theme = SubResource("Theme_bas33")
+text = "START"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
