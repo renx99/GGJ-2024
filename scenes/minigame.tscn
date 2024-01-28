@@ -33,8 +33,10 @@ direction = "right"
 position = Vector2(-5, 265)
 direction = "right"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Goal" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(303, 35)
 shape = SubResource("RectangleShape2D_11370")
+
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

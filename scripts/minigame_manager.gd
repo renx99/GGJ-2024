@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends SubViewport
 
 var minigame_scene = preload("res://scenes/minigame.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -14,4 +14,6 @@ func _process(delta):
 func _on_player_play_minigame():
 	var minigame = minigame_scene.instantiate()
 	add_child(minigame)
-	print("added minigame")
+	$"../minigame_viewport".visible = true
+	$"../main_game".get_tree().paused = true
+	PhysicsServer2D.set_active(true)

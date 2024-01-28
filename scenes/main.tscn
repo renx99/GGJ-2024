@@ -4,34 +4,39 @@
 [ext_resource type="PackedScene" uid="uid://blqqukrkjwi0" path="res://scenes/level1-final.tscn" id="2_olrmi"]
 [ext_resource type="Texture2D" uid="uid://cce7xhux0qw26" path="res://graphics/trees.png" id="3_xhmrt"]
 [ext_resource type="Texture2D" uid="uid://kl7662w8ru8t" path="res://graphics/hut.png" id="4_kodfy"]
-[ext_resource type="PackedScene" uid="uid://dgd8e4dokh4mh" path="res://scenes/minigame.tscn" id="6_twvn3"]
+[ext_resource type="Script" path="res://scripts/minigame_manager.gd" id="5_7v08v"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rabhw"]
 viewport_path = NodePath("minigame_manager")
 
 [node name="main" type="Node2D"]
 
-[node name="Level1" parent="." instance=ExtResource("2_olrmi")]
+[node name="main_game" type="Node" parent="."]
 
-[node name="Trees" type="Sprite2D" parent="."]
+[node name="Level1" parent="main_game" instance=ExtResource("2_olrmi")]
+
+[node name="Trees" type="Sprite2D" parent="main_game"]
 position = Vector2(1078, 608)
 texture = ExtResource("3_xhmrt")
 
-[node name="Hut" type="Sprite2D" parent="."]
+[node name="Hut" type="Sprite2D" parent="main_game"]
 position = Vector2(1768, 557)
 texture = ExtResource("4_kodfy")
 
-[node name="Player" parent="." instance=ExtResource("2_6pxwq")]
-position = Vector2(751, 893)
-scale = Vector2(4, 4)
+[node name="Player" parent="main_game" instance=ExtResource("2_6pxwq")]
+position = Vector2(2668, 826)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="minigame_viewport" type="CanvasLayer" parent="."]
+visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(821, 872)
+[node name="Sprite2D" type="Sprite2D" parent="minigame_viewport"]
+position = Vector2(960, 540)
 texture = SubResource("ViewportTexture_rabhw")
 
 [node name="minigame_manager" type="SubViewport" parent="."]
 size = Vector2i(600, 600)
+script = ExtResource("5_7v08v")
 
-[node name="minigame" parent="minigame_manager" instance=ExtResource("6_twvn3")]
+[connection signal="play_minigame" from="main_game/Player" to="minigame_manager" method="_on_player_play_minigame"]
