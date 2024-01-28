@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cop7wah54ci4d"
+path="res://.godot/imported/Chicken dies 2.ogg-00157cdb7f9d5531499e2118e428cc95.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Chicken dies 2.ogg"
+dest_files=["res://.godot/imported/Chicken dies 2.ogg-00157cdb7f9d5531499e2118e428cc95.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

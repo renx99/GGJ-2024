@@ -1,24 +1,132 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwy7ux5gfyht4"]
+[gd_scene load_steps=19 format=3 uid="uid://cwy7ux5gfyht4"]
 
 [ext_resource type="Script" path="res://scripts/clown.gd" id="1_3ty01"]
-[ext_resource type="Texture2D" uid="uid://4nxr6q8iu658" path="res://graphics/stick-person.png" id="1_ktr6p"]
+[ext_resource type="Texture2D" uid="uid://c6kpy6cqsge51" path="res://graphics/clown-left.png" id="2_bhvwi"]
+[ext_resource type="Texture2D" uid="uid://c70r16he7isx6" path="res://graphics/clown-right.png" id="3_55k55"]
+[ext_resource type="AudioStream" uid="uid://c5u8kr3sjggti" path="res://audio/Clown2.ogg" id="4_vwunm"]
+[ext_resource type="AudioStream" uid="uid://ixqke5n1fxnd" path="res://audio/Clown1.ogg" id="5_7vxqn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctrjx"]
-height = 62.0
+radius = 56.0
+height = 348.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdb10"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(0, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeyer"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(0, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tmlo"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(310, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4kax"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(620, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6h1i"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(930, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gqhr"]
+atlas = ExtResource("2_bhvwi")
+region = Rect2(1240, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81kpf"]
+atlas = ExtResource("3_55k55")
+region = Rect2(0, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4igs5"]
+atlas = ExtResource("3_55k55")
+region = Rect2(310, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr782"]
+atlas = ExtResource("3_55k55")
+region = Rect2(620, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adipe"]
+atlas = ExtResource("3_55k55")
+region = Rect2(930, 0, 310, 436)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14cyl"]
+atlas = ExtResource("3_55k55")
+region = Rect2(1240, 0, 310, 436)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jcyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdb10")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeyer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tmlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4kax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6h1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gqhr")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81kpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4igs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr782")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adipe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14cyl")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}]
 
 [node name="clown" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_3ty01")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.960784, 0.439216, 0.0666667, 1)
-texture = ExtResource("1_ktr6p")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 1)
 shape = SubResource("CapsuleShape2D_ctrjx")
 
 [node name="left_ray" type="RayCast2D" parent="."]
-target_position = Vector2(-400, 0)
+target_position = Vector2(-1500, 0)
 
 [node name="right_ray" type="RayCast2D" parent="."]
-target_position = Vector2(400, 0)
+target_position = Vector2(1500, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3jcyr")
+animation = &"idle"
+frame_progress = 0.905402
+metadata/_edit_lock_ = true
+
+[node name="clown_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vwunm")
+
+[node name="clown_sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7vxqn")

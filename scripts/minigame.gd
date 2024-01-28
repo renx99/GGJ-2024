@@ -6,6 +6,7 @@ var background:Rect2
 func _ready():
 	#get_tree().paused = true
 	PhysicsServer2D.set_active(true)
+	$chicken_sound.play()
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	
 	if $"../../main_game/Player".has_whoopie:

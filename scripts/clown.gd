@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 1200.0
 const JUMP_VELOCITY = -400.0
 
 
@@ -21,8 +21,10 @@ func _physics_process(delta):
 		direction = 1
 
 	if direction:
+		$clown_sound.play()
 		velocity.x = direction * SPEED
 	else:
+		$clown_sound2.play()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

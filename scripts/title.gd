@@ -5,6 +5,9 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+func _process(_delta):
+	if Input.is_action_pressed("start_game"):
+		_on_button_pressed()
 
 
 func _on_button_pressed():

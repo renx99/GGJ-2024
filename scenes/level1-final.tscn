@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blqqukrkjwi0"]
+[gd_scene load_steps=12 format=3 uid="uid://blqqukrkjwi0"]
 
 [ext_resource type="Texture2D" uid="uid://ckbj5qeb6nl8t" path="res://graphics/charlie-sprites-Sheet.png" id="1_n8h5j"]
 [ext_resource type="PackedScene" uid="uid://8t874gbb1l2t" path="res://scenes/door.tscn" id="2_axcny"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="3_iprk6"]
 [ext_resource type="PackedScene" uid="uid://b3enbjiti05nw" path="res://scenes/movable_box.tscn" id="4_1tjgq"]
 [ext_resource type="PackedScene" uid="uid://di2rfa8ioagb6" path="res://scenes/exit.tscn" id="6_o3oxi"]
+[ext_resource type="PackedScene" uid="uid://cwy7ux5gfyht4" path="res://scenes/clown.tscn" id="7_hjeia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ry7y"]
 resource_name = "charlie-tiles"
@@ -136,5 +137,20 @@ shape = SubResource("RectangleShape2D_gdsln")
 
 [node name="Exit" parent="." instance=ExtResource("6_o3oxi")]
 position = Vector2(37687, 1020)
+
+[node name="clown" parent="." instance=ExtResource("7_hjeia")]
+position = Vector2(9448, 55)
+
+[node name="clown2" parent="." instance=ExtResource("7_hjeia")]
+position = Vector2(21141, 12)
+
+[node name="clown3" parent="." instance=ExtResource("7_hjeia")]
+position = Vector2(27484, -981)
+
+[node name="clown4" parent="." instance=ExtResource("7_hjeia")]
+position = Vector2(30175, 557)
+
+[node name="clown5" parent="." instance=ExtResource("7_hjeia")]
+position = Vector2(33742, 525)
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
