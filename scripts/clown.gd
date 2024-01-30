@@ -16,9 +16,11 @@ func _physics_process(delta):
 	var direction = 0 
 	if $left_ray.is_colliding():
 		direction = -1
+		$AnimatedSprite2D.play("walk-left")
 		
 	if $right_ray.is_colliding():
 		direction = 1
+		$AnimatedSprite2D.play("walk-right")
 
 	if direction:
 		$clown_sound.play()
@@ -26,6 +28,7 @@ func _physics_process(delta):
 	else:
 		$clown_sound2.play()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
 	
